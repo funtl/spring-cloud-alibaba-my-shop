@@ -63,7 +63,7 @@ public class BaseResultFactory<T extends AbstractBaseDomain> {
      * @param level  日志级别，只有 DEBUG 时才显示详情
      * @return
      */
-    public static AbstractBaseResult build(int code, String title, String detail, String level) {
+    public AbstractBaseResult build(int code, String title, String detail, String level) {
         if (LOGGER_LEVEL_DEBUG.equals(level)) {
             return new ErrorResult(code, title, detail);
         } else {
