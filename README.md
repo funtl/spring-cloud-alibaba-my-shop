@@ -82,6 +82,7 @@
 | myshop-service-oss                       | 9504     | 文件上传 |
 | myshop-service-forget                    | 9505     | 忘记密码 |
 | myshop-service-search                    | 9506     | 全文检索 |
+| myshop-service-email                     | 9507     | 邮件服务 |
 | **以下为服务提供者**                     |          |                |
 | myshop-service-provider-content-category | 10101    | 内容分类提供者 |
 | myshop-service-provider-content          | 10102    | 内容服务提供者 |
