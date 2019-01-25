@@ -10,10 +10,10 @@
         <relativePath>../myshop-dependencies/pom.xml</relativePath>
     </parent>
 
-    <artifactId>myshop-service-reg</artifactId>
+    <artifactId>myshop-service-email</artifactId>
     <packaging>jar</packaging>
 
-    <name>myshop-service-reg</name>
+    <name>myshop-service-email</name>
     <url>http://www.funtl.com</url>
     <inceptionYear>2018-Now</inceptionYear>
 
@@ -31,6 +31,20 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>net.sourceforge.nekohtml</groupId>
+            <artifactId>nekohtml</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
         <!-- Spring Boot End -->
 
@@ -56,7 +70,7 @@
         <!-- Projects Begin -->
         <dependency>
             <groupId>com.funtl</groupId>
-            <artifactId>myshop-commons-service</artifactId>
+            <artifactId>myshop-commons-domain</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
         <!-- Projects End -->
@@ -68,7 +82,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.funtl.myshop.service.reg.MyShopServiceRegApplication</mainClass>
+                    <mainClass>com.funtl.myshop.service.reg.MyShopServiceEmailApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>

@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    stream:
+      rocketmq:
+        binder:
+          namesrv-addr: 192.168.10.149:9876
+        bindings:
+          input: {consumer.orderly: true}
+      bindings:
+        input: {destination: topic-email, content-type: application/json, group: group-email, consumer.maxAttempts: 1}
+  thymeleaf:
+    cache: false
+    mode: HTML
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
