@@ -22,6 +22,11 @@ public class SuccessResult<T extends AbstractBaseDomain> extends AbstractBaseRes
     private Links links;
     private List<DataBean> data;
 
+    /**
+     * 请求的结果（单笔）
+     * @param self 当前请求路径
+     * @param attributes 领域模型
+     */
     public SuccessResult(String self, T attributes) {
         links = new Links();
         links.setSelf(self);
@@ -29,6 +34,13 @@ public class SuccessResult<T extends AbstractBaseDomain> extends AbstractBaseRes
         createDataBean(null, attributes);
     }
 
+    /**
+     * 请求的结果（分页）
+     * @param self 当前请求路径
+     * @param next 下一页的页码
+     * @param last 最后一页的页码
+     * @param attributes 领域模型集合
+     */
     public SuccessResult(String self, int next, int last, List<T> attributes) {
         links = new Links();
         links.setSelf(self);
@@ -38,6 +50,11 @@ public class SuccessResult<T extends AbstractBaseDomain> extends AbstractBaseRes
         attributes.forEach(attribute -> createDataBean(self, attribute));
     }
 
+    /**
+     * 创建 DataBean
+     * @param self 当前请求路径
+     * @param attributes 领域模型
+     */
     private void createDataBean(String self, T attributes) {
         if (data == null) {
             data = Lists.newArrayList();

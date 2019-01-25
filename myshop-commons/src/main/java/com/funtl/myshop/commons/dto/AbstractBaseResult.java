@@ -17,6 +17,9 @@ import java.io.Serializable;
 @Data
 public abstract class AbstractBaseResult implements Serializable {
 
+    /**
+     * 此为内部类
+     */
     @Data
     @JsonInclude(JsonInclude.Include.NON_NULL)
     protected static class Links {
