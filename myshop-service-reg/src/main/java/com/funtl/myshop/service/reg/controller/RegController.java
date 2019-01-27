@@ -32,6 +32,11 @@ public class RegController extends AbstractBaseController<TbUser> {
             return error(message, null);
         }
 
+        // 验证密码是否为空
+        if (StringUtils.isBlank(tbUser.getPassword())) {
+            return error("密码不可为空", null);
+        }
+
         // 验证用户名是否重复
         if (!tbUserService.unique("username", tbUser.getUsername())) {
             return error("用户名重复，请重试", null);
@@ -43,12 +48,17 @@ public class RegController extends AbstractBaseController<TbUser> {
         }
 
         // 注册用户
-        tbUser.setPassword(DigestUtils.md5DigestAsHex(tbUser.getPassword().getBytes()));
-        TbUser user = tbUserService.save(tbUser);
-        if (user != null) {
-            regService.sendEmail(user);
-            response.setStatus(HttpStatus.CREATED.value());
-            return success(request.getRequestURI(), user);
+        try {
+            tbUser.setPassword(DigestUtils.md5DigestAsHex(tbUser.getPassword().getBytes()));
+            TbUser user = tbUserService.save(tbUser);
+            if (user != null) {
+                regService.sendEmail(user);
+                response.setStatus(HttpStatus.CREATED.value());
+                return success(request.getRequestURI(), user);
+            }
+        } catch (Exception e) {
+            // 这里补一句，将 RegService 中的异常抛到 Controller 中，这样可以打印出调试信息
+            return error(HttpStatus.INTERNAL_SERVER_ERROR.value(), "注册邮件发送失败", e.getMessage());
         }
 
         // 注册失败

@@ -15,11 +15,7 @@ public class RegService {
     private MessageChannel output;
 
     @Async
-    public void sendEmail(TbUser tbUser) {
-        try {
-            output.send(MessageBuilder.withPayload(MapperUtils.obj2json(tbUser)).build());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void sendEmail(TbUser tbUser) throws Exception {
+        output.send(MessageBuilder.withPayload(MapperUtils.obj2json(tbUser)).build());
     }
 }
