@@ -1,5 +1,16 @@
 # Spring Cloud Alibaba For MyShop
 
+## 博客
+
+- [Spring Cloud Alibaba](http://www.funtl.com/zh/spring-cloud-alibaba)
+- [Spring Cloud Alibaba For MyShop](http://www.funtl.com/zh/spring-cloud-alibaba-myshop)
+
+## 视频
+
+- [【千锋教育】微服务架构之 Spring Cloud Alibaba](https://www.bilibili.com/video/av40924228/)
+
+## 概述
+
 利用 Spring Cloud Alibaba 微服务架构解决方案重构 [**走向单体地狱**](http://www.funtl.com/zh/guide/%E8%B5%B0%E5%90%91%E5%8D%95%E4%BD%93%E5%9C%B0%E7%8B%B1.html#%E8%A7%86%E9%A2%91%E5%90%88%E9%9B%86) 阶段开发的 MyShop 项目，以便于我们更好的理解微服务架构，将知识点运用到实践中。
 
 ## 开发环境
