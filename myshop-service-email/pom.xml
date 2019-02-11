@@ -82,7 +82,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.funtl.myshop.service.reg.MyShopServiceEmailApplication</mainClass>
+                    <mainClass>com.funtl.myshop.service.email.MyShopServiceEmailApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>
