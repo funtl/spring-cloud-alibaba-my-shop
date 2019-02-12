@@ -39,7 +39,7 @@ public class RegController extends AbstractBaseController<TbUser> {
 
         // 验证用户名是否重复
         if (!tbUserService.unique("username", tbUser.getUsername())) {
-            return error("用户名重复，请重试", null);
+            return error("用户名已存在", null);
         }
 
         // 验证邮箱是否重复

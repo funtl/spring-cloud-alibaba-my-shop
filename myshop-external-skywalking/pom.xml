@@ -12,6 +12,7 @@
 
     <artifactId>myshop-external-skywalking</artifactId>
     <packaging>jar</packaging>
+    <version>1.0.0</version>
 
     <name>myshop-external-skywalking</name>
     <url>http://www.funtl.com</url>

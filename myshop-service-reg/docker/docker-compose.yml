@@ -1,0 +1,8 @@
+version: '3.1'
+services:
+  myshop-service-reg:
+    image: 192.168.10.139:5000/myshop-service-reg
+    restart: always
+    container_name: myshop-service-reg
+    ports:
+      - 9502:9502
