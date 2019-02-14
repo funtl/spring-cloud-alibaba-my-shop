@@ -6,6 +6,8 @@ import com.funtl.myshop.commons.service.TbUserService;
 import com.funtl.myshop.commons.validator.BeanValidator;
 import com.funtl.myshop.commons.web.AbstractBaseController;
 import com.funtl.myshop.service.reg.service.RegService;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,8 +26,9 @@ public class RegController extends AbstractBaseController<TbUser> {
     @Autowired
     private RegService regService;
 
+    @ApiOperation(value = "用户注册", notes = "参数为实体类，注意用户名和邮箱不要重复")
     @PostMapping(value = "")
-    public AbstractBaseResult reg(TbUser tbUser) {
+    public AbstractBaseResult reg(@ApiParam(name = "tbUser", value = "用户模型") TbUser tbUser) {
         // 数据校验
         String message = BeanValidator.validator(tbUser);
         if (StringUtils.isNotBlank(message)) {
