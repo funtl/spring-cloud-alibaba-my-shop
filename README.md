@@ -51,7 +51,7 @@
 ## 前后分离
 
 - 前端框架：NodeJS + Vue + Axios
-- 前端模板：iview
+- 前端模板：ElementUI
 
 ## 持续集成
 
