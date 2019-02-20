@@ -176,7 +176,6 @@ public class MapperUtils {
         return list;
     }
 
-
     /**
      * 获取泛型的 Collection Type
      *

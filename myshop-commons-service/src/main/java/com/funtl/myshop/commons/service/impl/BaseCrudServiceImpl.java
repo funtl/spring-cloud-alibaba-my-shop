@@ -2,6 +2,8 @@ package com.funtl.myshop.commons.service.impl;
 
 import com.funtl.myshop.commons.dto.AbstractBaseDomain;
 import com.funtl.myshop.commons.service.BaseCrudService;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import tk.mybatis.mapper.MyMapper;
 import tk.mybatis.mapper.entity.Example;
@@ -56,5 +58,15 @@ public class BaseCrudServiceImpl<T extends AbstractBaseDomain, M extends MyMappe
 
         // 保存数据失败
         return null;
+    }
+
+    @Override
+    public PageInfo<T> page(T domain, int pageNum, int pageSize) {
+        Example example = new Example(entityClass);
+        example.createCriteria().andEqualTo(domain);
+
+        PageHelper.startPage(pageNum, pageSize);
+        PageInfo<T> pageInfo = new PageInfo<>(mapper.selectByExample(example));
+        return pageInfo;
     }
 }
