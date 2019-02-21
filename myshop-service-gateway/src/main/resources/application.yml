@@ -1,0 +1,52 @@
+spring:
+  application:
+    name: myshop-service-gateway
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    default-property-inclusion: non_null
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.10.151:8848
+    sentinel:
+      transport:
+        port: 8721
+        dashboard: 192.168.10.151:8080
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: MYSHOP-SERVICE-CONSUMER-ITEM
+          uri: lb://myshop-service-consumer-item
+          predicates:
+            # 路径匹配，以 api 开头，直接配置是不生效的，看 filters 配置
+            - Path=/api/item/**
+          filters:
+            # 前缀过滤，默认配置下，我们的请求路径是 http://localhost:9000/myshop-service-consumer-item/** 这时会路由到指定的服务
+            # 此处配置去掉 1 个路径前缀，再配置上面的 Path=/api/**，就能按照 http://localhost:9000/api/** 的方式访问了
+            - StripPrefix=1
+        - id: MYSHOP-SERVICE-REG
+          uri: lb://myshop-service-reg
+          predicates:
+            - Path=/api/reg/**
+          filters:
+            - StripPrefix=1
+
+server:
+  port: 9000
+
+feign:
+  sentinel:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+logging:
+  level:
+    org.springframework.cloud.gateway: debug
