@@ -1,4 +1,4 @@
-package com.funtl.myshop.commons.service.config;
+package com.funtl.myshop.commons.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

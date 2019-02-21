@@ -23,9 +23,25 @@ cd myshop-commons-service
 call mvn deploy
 
 cd ..
+cd myshop-commons-consumer
+call mvn deploy
+
+cd ..
 cd myshop-service-reg
 call mvn deploy
 
 cd ..
 cd myshop-service-email
+call mvn deploy
+
+cd ..
+cd myshop-service-gateway
+call mvn deploy
+
+cd ..
+cd myshop-service-provider-item
+call mvn deploy
+
+cd ..
+cd myshop-service-consumer-item
 call mvn deploy

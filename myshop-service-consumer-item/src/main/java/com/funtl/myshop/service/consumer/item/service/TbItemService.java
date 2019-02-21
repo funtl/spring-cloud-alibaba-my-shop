@@ -1,12 +1,13 @@
 package com.funtl.myshop.service.consumer.item.service;
 
+import com.funtl.myshop.commons.domain.TbItem;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @FeignClient(value = "myshop-service-provider-item")
 public interface TbItemService {
 
-    @GetMapping(value = "/item/page/{num}/{size}")
-    String page(@PathVariable(name = "num") int pageNum, @PathVariable(name = "size") int pageSize);
+    @PostMapping(value = "/item/page/{pageNum}/{pageSize}")
+    String page(TbItem tbItem, @PathVariable(name = "pageNum") int pageNum, @PathVariable(name = "pageSize") int pageSize);
 }
