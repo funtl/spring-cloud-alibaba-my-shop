@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: myshop-service-cache
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.10.151:8848
+    sentinel:
+      transport:
+        port: 8721
+        dashboard: 192.168.10.151:8080
+  redis:
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: -1ms
+        min-idle: 0
+    sentinel:
+      master: mymaster
+      nodes: 192.168.10.151:26379, 192.168.10.151:26380, 192.168.10.151:26381
+
+server:
+  port: 9503
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
