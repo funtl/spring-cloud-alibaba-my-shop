@@ -8,6 +8,7 @@
 ## 视频
 
 - [【千锋教育】微服务架构之 Spring Cloud Alibaba](https://www.bilibili.com/video/av40924228/)
+- [【千锋教育】微服务实战之 Spring Cloud Alibaba For MyShop](https://www.bilibili.com/video/av44630160/)
 
 ## 概述
 
