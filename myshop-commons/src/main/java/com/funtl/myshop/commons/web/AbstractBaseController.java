@@ -8,6 +8,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
@@ -26,7 +27,9 @@ public abstract class AbstractBaseController<T extends AbstractBaseDomain> {
     // 用于动态获取配置文件的属性值
     private static final String ENVIRONMENT_LOGGING_LEVEL_MY_SHOP = "logging.level.com.funtl.myshop";
 
+    @Resource
     protected HttpServletRequest request;
+    @Resource
     protected HttpServletResponse response;
 
     @Autowired
