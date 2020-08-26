@@ -10,7 +10,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,7 +36,7 @@ public class TbItemController extends AbstractBaseController<TbItem> {
             @ApiImplicitParam(name = "pageNum", value = "页码", required = true, paramType = "path"),
             @ApiImplicitParam(name = "pageSize", value = "笔数", required = true, paramType = "path")
     })
-    @PostMapping(value = "page/{pageNum}/{pageSize}")
+    @GetMapping(value = "page/{pageNum}/{pageSize}")
     public PageInfo<TbItem> page(
             @ApiParam(name = "商品信息", required = false) @RequestBody TbItem tbItem,
             @PathVariable int pageNum,
